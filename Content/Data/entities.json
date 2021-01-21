@@ -1,0 +1,31 @@
+[
+  /*{
+    "Name": "Bat",
+    "Type": "Enemy"
+  },
+  {
+    "Name": "Rock",
+    "Type":  "Node"
+  }
+  {
+    "Name": "Animal",
+    "Type": "NPC",
+    "Hostile": "False"
+  },*/
+  {
+    "Name": "Farm",
+    "Type": "Place"
+  },
+  {
+    "Name": "Barn",
+    "Type": "Place"
+  },
+  {
+    "Name": "House",
+    "Type": "Place"
+  },
+  {
+    "Name": "Backpack",
+    "Type": "Container"
+  }
+]

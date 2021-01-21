@@ -1,0 +1,33 @@
+[
+  {
+    "Name": "farm",
+    "Children": [
+      { "Name": "forest-entrance" },
+      {
+        "Name": "house",
+        "Children": [
+          { "Name": "wooden-door" },
+          { "Name": "bed" },
+          { "Name": "chest" }
+        ]
+      },
+      {
+        "Name": "barn",
+        "Children": [
+          { "Name": "barrel" },
+          { "Name": "chicken" },
+          { "Name": "chicken" }
+        ]
+      },
+      { "Name": "pine" },
+      { "Name": "rock" },
+      { "Name": "rock" },
+      { "Name": "rock" },
+      { "Name": "stick" },
+      { "Name": "stick" },
+      { "Name": "grass" },
+      { "Name": "grass" },
+      { "Name": "grass" }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Place",
+    "CanEnter": true
+  },
+  {
+    "Name": "Container",
+    "CanEnter": true
+  },
+  {
+    "Name": "Item",
+    "CanPick": true
+  }
+]
