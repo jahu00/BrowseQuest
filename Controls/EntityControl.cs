@@ -13,28 +13,51 @@ namespace BrowseQuest.Controls
 {
     public partial class EntityControl : UserControl
     {
-        public EntityInstance EntityInstance { get; set; }
+        public EntityObject EntityObject { get; private set; }
 
-        public EntityControl(EntityInstance entityInstance)
+        public string ImageName { get; set; }
+
+        public string Path { get; set; }
+
+        public EntityControl(EntityObject entityObject, string path)
         {
             InitializeComponent();
-            SetEntity(entityInstance);
+            SetEntity(entityObject);
+            Path = path;
         }
 
-        public void SetEntity(EntityInstance entityInstance)
+        public void SetEntity(EntityObject entityInstance)
         {
-            EntityInstance = entityInstance;
-            nameLabel.Text = EntityInstance.Name;
-            SetImage(EntityInstance.Name);
+            EntityObject = entityInstance;
+            UpdateEntity();   
+        }
+
+        public void UpdateEntity()
+        {
+            if (nameLabel.Text != EntityObject.DisplayName)
+            {
+                nameLabel.Text = EntityObject.DisplayName;
+            }
+            SetImage(EntityObject.ImageName);
+            if (EntityObject.Visible.HasValue && EntityObject.Visible != Visible)
+            {
+                Visible = EntityObject.Visible.Value;
+            }
         }
 
         private void SetImage(string name)
         {
-            if (!DesignMode)
+            if (ImageName == name)
             {
-                var image = ImageManager.Instance.GetImage(name);
-                entityPictureBox.Image = image;
+                return;
             }
+            if (DesignMode)
+            {
+                return;
+            }
+            ImageName = name;
+            var image = ImageManager.Instance.GetImage(name);
+            entityPictureBox.Image = image;
         }
 
         private void entityPictureBox_Click(object sender, EventArgs e)

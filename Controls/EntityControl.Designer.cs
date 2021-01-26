@@ -40,7 +40,7 @@
             this.entityPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.entityPictureBox.Location = new System.Drawing.Point(3, 3);
             this.entityPictureBox.Name = "entityPictureBox";
-            this.entityPictureBox.Size = new System.Drawing.Size(144, 106);
+            this.entityPictureBox.Size = new System.Drawing.Size(58, 42);
             this.entityPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.entityPictureBox.TabIndex = 0;
             this.entityPictureBox.TabStop = false;
@@ -58,15 +58,15 @@
             this.layoutPanel.RowCount = 2;
             this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.layoutPanel.Size = new System.Drawing.Size(150, 150);
+            this.layoutPanel.Size = new System.Drawing.Size(64, 64);
             this.layoutPanel.TabIndex = 1;
             // 
             // nameLabel
             // 
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameLabel.Location = new System.Drawing.Point(3, 112);
+            this.nameLabel.Location = new System.Drawing.Point(3, 48);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(144, 38);
+            this.nameLabel.Size = new System.Drawing.Size(58, 16);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "label1";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,6 +79,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.layoutPanel);
             this.Name = "EntityControl";
+            this.Size = new System.Drawing.Size(64, 64);
             ((System.ComponentModel.ISupportInitialize)(this.entityPictureBox)).EndInit();
             this.layoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);

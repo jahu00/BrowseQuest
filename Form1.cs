@@ -1,5 +1,7 @@
 ﻿using BrowseQuest.Controls;
 using BrowseQuest.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +20,15 @@ namespace BrowseQuest
         public Form1()
         {
             InitializeComponent();
-            var jsonStr = File.ReadAllText("Content/Data/world.json");
-            var world = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EntityInstance>>(jsonStr);
-            populate(world);
+            var classJson = File.ReadAllText("Content/Data/classes.json");
+            var worldJson = File.ReadAllText("Content/Data/world.json");
+            var classManager = new EntityClassManager(classJson);
+            var world = new EntityObject(worldJson, classManager); //Newtonsoft.Json.JsonConvert.DeserializeObject<List<EntityInstance>>(jsonStr);
+            //populate(world.Children);
+            worldEntityContainer.SetRootObject(world);
+            backpackEntityContainer.SetRootObject(world);
+            worldEntityContainer.SetPath("Farm");
+            backpackEntityContainer.SetPath("Backpack");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,32 +45,21 @@ namespace BrowseQuest
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (entityLayoutPanel.Controls.Count == 0)
+            /*if (entityLayoutPanel.Controls.Count == 0)
             {
                 return;
             }
             var entity = entityLayoutPanel.Controls.Cast<Control>().Last();
-            entity.Dispose();
-        }
-
-        public void populate(List<EntityInstance> entities)
-        {
-            entityLayoutPanel.Controls.Clear();
-            foreach (var entityInstance in entities)
-            {
-                var entityControl = new EntityControl(entityInstance);
-                entityControl.Click += entityControl_Click;
-                entityLayoutPanel.Controls.Add(entityControl);
-            }
+            entity.Dispose();*/
         }
 
         private void entityControl_Click(object sender, EventArgs e)
         {
-            var entityControl = (EntityControl)sender;
-            if (entityControl.EntityInstance.Children?.Count > 0)
+            /*var entityControl = (EntityControl)sender;
+            if (entityControl.EntityObject.Children?.Count > 0)
             {
-                populate(entityControl.EntityInstance.Children);
-            }
+                populate(entityControl.EntityObject.Children);
+            }*/
         }
     }
 }

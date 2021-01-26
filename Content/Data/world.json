@@ -1,33 +1,59 @@
-[
-  {
-    "Name": "farm",
-    "Children": [
-      { "Name": "forest-entrance" },
-      {
-        "Name": "house",
-        "Children": [
-          { "Name": "wooden-door" },
-          { "Name": "bed" },
-          { "Name": "chest" }
-        ]
-      },
-      {
-        "Name": "barn",
-        "Children": [
-          { "Name": "barrel" },
-          { "Name": "chicken" },
-          { "Name": "chicken" }
-        ]
-      },
-      { "Name": "pine" },
-      { "Name": "rock" },
-      { "Name": "rock" },
-      { "Name": "rock" },
-      { "Name": "stick" },
-      { "Name": "stick" },
-      { "Name": "grass" },
-      { "Name": "grass" },
-      { "Name": "grass" }
-    ]
-  }
-]
+{
+  "Id": "Root",
+  "Class": "Game",
+  "Children": [
+    {
+      "Id": "Farm",
+      "Class": "Farm",
+      "Children": [
+        { "Class": "forest-entrance" },
+        {
+          "Class": "House",
+          "Children": [
+            {
+              "Class": "BackLink",
+              "Image": "wooden-door"
+            },
+            { "Class": "Bed" },
+            {
+              "Class": "Chest",
+              "Children": [
+                { "Class": "BackLink" }
+              ]
+            }
+          ]
+        },
+        {
+          "Class": "Barn",
+          "Children": [
+            { "Class": "BackLink" },
+            { "Class": "barrel" },
+            { "Class": "chicken" },
+            { "Class": "chicken" }
+          ]
+        },
+        { "Class": "pine" },
+        { "Class": "rock" },
+        { "Class": "rock" },
+        { "Class": "rock" },
+        { "Class": "stick" },
+        { "Class": "stick" },
+        { "Class": "grass" },
+        { "Class": "grass" },
+        { "Class": "grass" }
+      ]
+    },
+    {
+      "Id": "Backpack",
+      "Class": "Backpack",
+      "Children": [
+        { "Class": "Sword" },
+        { "Class": "Pitchfork" },
+        { "Class": "Pickaxe" },
+        { "Class": "Axe" },
+        { "Class": "WateringCan" },
+        { "Class": "WateringCan" }
+      ]
+    }
+  ]
+}

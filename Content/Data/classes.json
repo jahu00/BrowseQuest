@@ -1,0 +1,55 @@
+[
+  {
+    "Class": "Location",
+    "CanEnter": true
+  },
+  {
+    "Class": "Container",
+    "CanEnter": true
+  },
+  {
+    "Class": "Item",
+    "CanPick": true,
+    "CanPlace": true,
+    "Size": 1,
+    "StackSize": 99
+  },
+  {
+    "Inherit": "Item",
+    "Class": "Equepment",
+    "Size": 1,
+    "StackSize": 1
+  },
+  {
+    "Class": "Link"
+  },
+  {
+    "Inherit": "Link",
+    "Class": "BackLink",
+    "Name": "Back",
+    "Link": "..",
+    "Image": "arrow-left"
+  },
+  {
+    "Class": "Chest",
+    "Inherit": "Container",
+    "Space": 24
+  },
+  {
+    "Class": "Backpack",
+    "Inherit": "Container",
+    "Space": 24
+  },
+  {
+    "Class": "Farm",
+    "Inherit": "Location"
+  },
+  {
+    "Class": "Barn",
+    "Inherit": "Location"
+  },
+  {
+    "Class": "House",
+    "Inherit": "Location"
+  }
+]
