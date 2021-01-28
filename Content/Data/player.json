@@ -1,0 +1,16 @@
+{
+  "Children": [
+    {
+      "Id": "Backpack",
+      "Class": "Backpack",
+      "Children": [
+        { "Class": "Sword" },
+        { "Class": "Pitchfork" },
+        { "Class": "Pickaxe" },
+        { "Class": "Axe" },
+        { "Class": "WateringCan" },
+        { "Class": "WateringCan" }
+      ]
+    }
+  ]
+}

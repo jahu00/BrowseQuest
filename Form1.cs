@@ -17,40 +17,65 @@ namespace BrowseQuest
 {
     public partial class Form1 : Form
     {
+        private Game Game { get; set; }
+
         public Form1()
         {
             InitializeComponent();
             var classJson = File.ReadAllText("Content/Data/classes.json");
             var worldJson = File.ReadAllText("Content/Data/world.json");
+            var playerJson = File.ReadAllText("Content/Data/player.json");
             var classManager = new EntityClassManager(classJson);
-            var world = new EntityObject(worldJson, classManager); //Newtonsoft.Json.JsonConvert.DeserializeObject<List<EntityInstance>>(jsonStr);
-            //populate(world.Children);
-            worldEntityContainer.SetRootObject(world);
-            backpackEntityContainer.SetRootObject(world);
-            worldEntityContainer.SetPath("Farm");
-            backpackEntityContainer.SetPath("Backpack");
+            var world = new EntityObject(worldJson, classManager);
+            var player = new EntityObject(playerJson, classManager);
+
+            var game = new Game(classManager, world, player);
+            Game = game;
+
+            worldEntityContainer.SetGame(game);
+            worldEntityContainer.EntityControlClicked += OnWorldEntityClicked;
+            game.PathChanged += worldEntityContainer.OnPathChanged;
+            game.SetPath("Farm");
+
+            backpackEntityContainer.SetGame(game);
+            backpackEntityContainer.EntityControlClicked += OnBackpackEntityClicked;
+            backpackEntityContainer.SetCurrentObject(game.Backpack);
+            backpackEntityContainer.PathText = "B:/Backpack";
+            
+        }
+
+        private void OnWorldEntityClicked(EntityContainerControl sender, EntityControl entityControl)
+        {
+            if (Game.TryGoToEntity(entityControl.EntityObject))
+            {
+                return;
+            }
+            Game.TryPickEntity(entityControl.EntityObject);
+        }
+
+        private void OnBackpackEntityClicked(EntityContainerControl sender, EntityControl entityControl)
+        {
+            Game.TryDropEntity(entityControl.EntityObject);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var entity = new EntityControl("bat");
-            //entityLayoutPanel.Controls.Add(entity);
+            Game.Spawn("Bat");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //var entity = new EntityControl("rat");
-            //entityLayoutPanel.Controls.Add(entity);
+            Game.Spawn("Rat");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /*if (entityLayoutPanel.Controls.Count == 0)
+            var lastChild = Game.CurrentObject.ImmutableChildren.LastOrDefault();
+            if (lastChild != null)
             {
-                return;
+                Game.CurrentObject.RemoveChild(lastChild);
             }
-            var entity = entityLayoutPanel.Controls.Cast<Control>().Last();
-            entity.Dispose();*/
+
         }
 
         private void entityControl_Click(object sender, EventArgs e)

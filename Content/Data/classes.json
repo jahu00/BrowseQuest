@@ -9,15 +9,13 @@
   },
   {
     "Class": "Item",
-    "CanPick": true,
-    "CanPlace": true,
+    "CanTake": true,
     "Size": 1,
     "StackSize": 99
   },
   {
     "Inherit": "Item",
     "Class": "Equepment",
-    "Size": 1,
     "StackSize": 1
   },
   {
@@ -51,5 +49,9 @@
   {
     "Class": "House",
     "Inherit": "Location"
+  },
+  {
+    "Class": "Stick",
+    "Inherit": "Item"
   }
 ]

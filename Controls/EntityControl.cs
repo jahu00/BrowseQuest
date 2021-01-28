@@ -17,13 +17,10 @@ namespace BrowseQuest.Controls
 
         public string ImageName { get; set; }
 
-        public string Path { get; set; }
-
-        public EntityControl(EntityObject entityObject, string path)
+        public EntityControl(EntityObject entityObject)
         {
             InitializeComponent();
             SetEntity(entityObject);
-            Path = path;
         }
 
         public void SetEntity(EntityObject entityInstance)
@@ -39,7 +36,7 @@ namespace BrowseQuest.Controls
                 nameLabel.Text = EntityObject.DisplayName;
             }
             SetImage(EntityObject.ImageName);
-            if (EntityObject.Visible.HasValue && EntityObject.Visible != Visible)
+            if (EntityObject.Visible != Visible)
             {
                 Visible = EntityObject.Visible.Value;
             }

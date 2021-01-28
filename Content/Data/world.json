@@ -27,32 +27,20 @@
           "Class": "Barn",
           "Children": [
             { "Class": "BackLink" },
-            { "Class": "barrel" },
-            { "Class": "chicken" },
-            { "Class": "chicken" }
+            { "Class": "Barrel" },
+            { "Class": "Chicken" },
+            { "Class": "Chicken" }
           ]
         },
-        { "Class": "pine" },
-        { "Class": "rock" },
-        { "Class": "rock" },
-        { "Class": "rock" },
-        { "Class": "stick" },
-        { "Class": "stick" },
-        { "Class": "grass" },
-        { "Class": "grass" },
-        { "Class": "grass" }
-      ]
-    },
-    {
-      "Id": "Backpack",
-      "Class": "Backpack",
-      "Children": [
-        { "Class": "Sword" },
-        { "Class": "Pitchfork" },
-        { "Class": "Pickaxe" },
-        { "Class": "Axe" },
-        { "Class": "WateringCan" },
-        { "Class": "WateringCan" }
+        { "Class": "Pine" },
+        { "Class": "Rock" },
+        { "Class": "Rock" },
+        { "Class": "Rock" },
+        { "Class": "Stick" },
+        { "Class": "Stick" },
+        { "Class": "Grass" },
+        { "Class": "Grass" },
+        { "Class": "Grass" }
       ]
     }
   ]
